@@ -80,4 +80,4 @@ def der(original_content, predicted_content, case_ending=True):
         else:
             not_equal += 1
 
-    return round(not_equal / max(1, (equal + not_equal)) * 100, 2)
+    return round(not_equal / max(1, (equal + not_equal)), 2)

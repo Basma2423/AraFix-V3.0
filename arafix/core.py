@@ -28,12 +28,14 @@ class AraFix:
         from jiwer import cer, wer
         from .der import der
 
-        der_scores = []
-
-        if isinstance(references, list) or isinstance(hypotheses, list):
-            references = [preprocess(r) for r in references]
-            hypotheses = [preprocess(h) for h in hypotheses]
-            der_scores = [der(ref, hyp) for ref, hyp in zip(references, hypotheses)]
+        refs = [references] if isinstance(references, str) else references
+        hyps = [hypotheses] if isinstance(hypotheses, str) else hypotheses
+        
+        cer_score = cer(refs, hyps)
+        wer_score = wer(refs, hyps)
+        
+        der_scores = [der(ref, hyp) for ref, hyp in zip(refs, hyps)]
+        der_score = sum(der_scores) / len(der_scores) if der_scores else 0
 
         metrics = {
             "cer": cer(references, hypotheses),

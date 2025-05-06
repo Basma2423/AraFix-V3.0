@@ -1,6 +1,6 @@
-# AraFix - Arabic Text Correction (Pro and Post Processing and Diacritization Evaluation)
+# AraFix - Arabic Text Correction
 
-A Python package for preprocessing Arabic text and evaluating diacritization models.
+A Python package for Arabic text correction both diacritically and phonetically
 
 ## Contributors:
 
@@ -23,11 +23,11 @@ pip install -e .
 3. Add the package directory to Python path:
 ```python
 import sys
-sys.path.append('/kaggle/working/ara_fix')
+sys.path.append('/kaggle/working/arafix')
 ```
 4. Import the package:
 ```python
-from ara_fix import AraFix
+from arafix import AraFix
 ```
 
 ### Google Colab
@@ -39,18 +39,18 @@ from ara_fix import AraFix
 3. Add the package directory to Python path:
 ```python
 import sys
-sys.path.append('/content/ara_fix')
+sys.path.append('/content/arafix')
 ```
 4. Import the package:
 ```python
-from ara_fix import AraFix
+from arafix import AraFix
 ```
 
 ## Usage
 
-### Preprocessing
+### Correct
 ```python
-from ara_fix import AraFix
+from arafix import AraFix
 
 corrector = AraFix()
 
@@ -67,6 +67,10 @@ print(f"Corrected Text: {corrected_text}")
 - text: **str** or a **list** of str
 - corrects phonetic and diacritic mistakes
 
+### `evaluate(reference, text)`
+- reference: **str** or a **list** of str
+- text: **str** or a **list** of str
+- computes character, word, and diacritic error rates (CER, WER, and DER)
 
 ## Dependencies
 - transformers

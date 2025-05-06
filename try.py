@@ -1,4 +1,4 @@
-from ara_fix import AraFix
+from arafix import AraFix
 
 corrector = AraFix()
 
@@ -31,13 +31,14 @@ references = [
 ]
 
 corrected_texts = corrector.correct(texts)
-metrics = corrector.evaluate(references, corrected_texts)
 
 print(f"Corrected Texts: ")
 for i, text in enumerate(corrected_texts):
     print(f"Text {i+1}: {text}")
     print(f"Reference: {references[i]}")
-    print(f"Cer : {metrics['cer']}")
-    print(f"Wer : {metrics['wer']}")
-    print(f"Der : {metrics['der']}")
     print("=" * 50, "\n")
+
+metrics = corrector.evaluate(references, corrected_texts)
+print(f"Cer : {metrics['cer']}")
+print(f"Wer : {metrics['wer']}")
+print(f"Der : {metrics['der']}")
