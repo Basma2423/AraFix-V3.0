@@ -21,13 +21,7 @@ DIACRITICS = [
     "ٍّ", # Shaddah + Kasratan
 ]
 
-# Arabic diacritics range (Tashkeel)
-DIACRITICS_PATTERN = r'[\u0617-\u061A\u064B-\u0652]'
-
-# Arabic letters (common range)
-LETTERS_PATTERN = r'[\u0621-\u064A]'
-
 ARAB_CHARS_NO_SPACE = "".join(LETTERS)
 
-MODEL_NAME = "CUAIStudents/AraFix"
+MODEL_NAME = "CUAIStudents/AraFix-V2.0"
 
