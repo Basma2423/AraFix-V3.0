@@ -24,6 +24,6 @@ class AraFixModel:
         if 'token_type_ids' in inputs:
             del inputs['token_type_ids']
 
-        outputs = self.model.generate(**inputs, max_length=128)
+        outputs = self.model.generate(**inputs, max_new_tokens=128)
         decoded_output = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
         return decoded_output

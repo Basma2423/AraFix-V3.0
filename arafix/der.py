@@ -61,8 +61,8 @@ def der(original_content, predicted_content, case_ending=True):
 
     ####################################################################
 
-    _, original_text, original_haraqat = extract_haraqat(original_content)
-    _, predicted_text, predicted_haraqat = extract_haraqat(predicted_content)
+    _, original_text, original_haraqat = extract_haraqat(original_content, correct_reversed=False)
+    _, predicted_text, predicted_haraqat = extract_haraqat(predicted_content, correct_reversed=False)
 
     if not case_ending:
         indices = get_case_ending_indices_from_un_diacritized_txt(original_text)

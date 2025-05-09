@@ -1,26 +1,29 @@
 from .model import AraFixModel
 from .preprocess import preprocess
+from .postprocess import postprocess
 
 class AraFix:
     def __init__(self):
         self.model = AraFixModel()
         
     def correct(self, text):
-        """Full pipeline: preprocess -> model"""
+        """Full pipeline: preprocess -> model --> postprocess"""
         
         # correct multiple sentences
         if isinstance(text, list):
             preprocessed = [preprocess(t) for t in text]
             print("Correcting ...")
             model_outputs = [self.model.predict(t)[0] for t in preprocessed]
-            return model_outputs
+            postprocessed = [postprocess(t) for t in model_outputs]
+            return postprocessed
 
-        # correct single sentence
+        # correct a single sentence
         preprocessed = preprocess(text)
         print("Correcting ...")
         model_output = self.model.predict(preprocessed)
         model_output = model_output[0]
-        return model_output
+        postprocessed = postprocess(model_output)
+        return postprocessed
     
     
     def evaluate(self, references, hypotheses):
