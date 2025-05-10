@@ -7,6 +7,8 @@ def preprocess(text, remove_last_diacritic=True):
 
     text = str(text)
 
+    text = text.strip()
+    
     text = araby.strip_tatweel(text)
 
     VALID_ARABIC_CHARS = LETTERS + DIACRITICS + [' ']

@@ -7,7 +7,7 @@ class AraFix:
         self.model = AraFixModel()
         
     def correct(self, text):
-        """Full pipeline: preprocess -> model --> postprocess"""
+        """Full pipeline: preprocess -> model -> postprocess"""
         
         # correct multiple sentences
         if isinstance(text, list):
