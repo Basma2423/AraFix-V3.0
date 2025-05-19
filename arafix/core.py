@@ -13,7 +13,7 @@ class AraFix:
         if isinstance(text, list):
             preprocessed = [preprocess(t) for t in text]
             print("Correcting ...")
-            model_outputs = [self.model.predict(t)[0] for t in preprocessed]
+            model_outputs = [self.model.predict(t)[0] for t in preprocessed if t]
             postprocessed = [postprocess(t) for t in model_outputs]
             return postprocessed
 
