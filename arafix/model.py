@@ -19,6 +19,10 @@ class AraFixModel:
         return self._tokenizer
     
     def predict(self, text):
+        
+        if not text:
+            return None
+        
         inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True)
 
         if 'token_type_ids' in inputs:
