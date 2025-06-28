@@ -23,7 +23,7 @@ pip install -e .
 3. Add the package directory to Python path:
 ```python
 import sys
-sys.path.append('/kaggle/working/AraFix-V2.0')
+sys.path.append('/kaggle/working/AraFix-V3.0')
 ```
 4. Import the package:
 ```python
@@ -39,7 +39,7 @@ from arafix import AraFix
 3. Add the package directory to Python path:
 ```python
 import sys
-sys.path.append('/content/AraFix-V2.0')
+sys.path.append('/content/AraFix-V3.0')
 ```
 4. Import the package:
 ```python

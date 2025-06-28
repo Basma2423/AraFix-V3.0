@@ -23,5 +23,5 @@ DIACRITICS = [
 
 ARAB_CHARS_NO_SPACE = "".join(LETTERS)
 
-MODEL_NAME = "CUAIStudents/AraFix-V2.0"
+MODEL_NAME = "CUAIStudents/AraFix-V3.0"
 
