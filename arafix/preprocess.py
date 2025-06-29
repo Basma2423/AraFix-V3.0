@@ -3,6 +3,12 @@ import unicodedata
 import pyarabic.araby as araby
 from .config import DIACRITICS, LETTERS
 
+
+def remove_last_diacritic(text):
+  while text and text[-1] in DIACRITICS:
+    text = text[:-1]
+  return text
+
 def preprocess_keep_periods_and_commas(text, remove_last_diacritic=True):
 
   text = str(text)
@@ -30,11 +36,6 @@ def preprocess_keep_periods_and_commas(text, remove_last_diacritic=True):
   text = WHITESPACES_PATTERN.sub(' ', text)
 
   text = unicodedata.normalize("NFC", text)
-
-  def remove_last_diacritic(text):
-    while text and text[-1] in DIACRITICS:
-      text = text[:-1]
-    return text
 
   if remove_last_diacritic:
     text = remove_last_diacritic(text)

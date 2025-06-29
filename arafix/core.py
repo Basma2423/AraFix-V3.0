@@ -46,6 +46,9 @@ class AraFix:
         refs = [references] if isinstance(references, str) else references
         hyps = [hypotheses] if isinstance(hypotheses, str) else hypotheses
 
+        refs = [preprocess(ref) for ref in refs]
+        hyps = [preprocess(hyp) for hyp in hyps]
+
         try:
             cer_score = cer(refs, hyps)
             wer_score = wer(refs, hyps)
