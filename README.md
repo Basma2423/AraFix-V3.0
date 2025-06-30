@@ -1,12 +1,14 @@
-# AraFix - Arabic Text Correction
+# AraFix - Arabic Text Correction (Pro and Post Processing and Diacritization Evaluation)
 
-A Python package for Arabic text correction both diacritically and phonetically
+Arabic correction model that fixes both diacritic and phoentic errors
+This repo is a wrapper for AraFix-V3.0 model on [huggingface](https://huggingface.co/CUAIStudents/AraFix-V3.0)
 
 ## Contributors:
 
-[Roaa Fathi Nada](https://github.com/rFathi03) 
-
 [Basma Mahmoud Hashem](https://github.com/Basma2423/) 
+
+[Roaa Fathi Nada](https://github.com/rFathi03)
+
 ## Installation
 
 ### Local Installation

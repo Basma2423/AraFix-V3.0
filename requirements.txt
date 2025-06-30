@@ -1,0 +1,6 @@
+pyarabic
+jiwer
+transformers
+datasets
+torch
+tqdm
