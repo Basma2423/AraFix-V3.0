@@ -17,14 +17,12 @@ def preprocess_keep_periods_and_commas(text, is_remove_last_diacritic=True):
 
   text = araby.strip_tatweel(text)
 
-  # Replace question marks and exclamation with Arabic period + space
-  text = re.sub(r'[?؟!]', '. ', text)
+  # Replace question marks, exclamation, and others with Arabic period + space
+  text = re.sub(r'[?؟!]|[\n\t\r\f\v]+', '. ', text)
 
   VALID_ARABIC_CHARS = LETTERS + DIACRITICS + [' ', '.', '.', ',', '،']
 
   text = ''.join(ch if ch in VALID_ARABIC_CHARS else ' ' for ch in text)
-
-  text = text.replace('\n', '. ')
 
   POETRY_THREE_DOT_PATTERN = re.compile(r'\.{3}|\.\s\.\s\.')
   text = POETRY_THREE_DOT_PATTERN.sub('', text)
