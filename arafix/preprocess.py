@@ -21,6 +21,9 @@ def preprocess_keep_periods_and_commas(text, is_remove_last_diacritic=True):
   text = re.sub(r'[?؟!:]|[\n\t\r\f\v]+', '. ', text)
 
   text = text.replace("ٱ", "ا")
+  
+  # sukoon normalization
+  text = re.sub(r"[\u0616-\u061A\u06E1]", "\u0652", text)
 
   VALID_ARABIC_CHARS = LETTERS + DIACRITICS + NUMBERS + ENG_LETTERS + ENG_NUMBERS + [' ', '.', '.', ',', '،']
 
