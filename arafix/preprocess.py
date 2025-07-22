@@ -1,7 +1,7 @@
 import re
 import unicodedata
 import pyarabic.araby as araby
-from .config import DIACRITICS, LETTERS, ENG_LETTERS, NUMBERS
+from .config import DIACRITICS, LETTERS, NUMBERS, ENG_LETTERS, ENG_NUMBERS
 
 
 def remove_last_diacritic(text):
@@ -20,7 +20,7 @@ def preprocess_keep_periods_and_commas(text, is_remove_last_diacritic=True):
   # Replace question marks, exclamation, and others with Arabic period + space
   text = re.sub(r'[?؟!:]|[\n\t\r\f\v]+', '. ', text)
 
-  VALID_ARABIC_CHARS = LETTERS + DIACRITICS + ENG_LETTERS + NUMBERS + [' ', '.', '.', ',', '،']
+  VALID_ARABIC_CHARS = LETTERS + DIACRITICS + NUMBERS + ENG_LETTERS + ENG_NUMBERS + [' ', '.', '.', ',', '،']
 
   text = ''.join(ch if ch in VALID_ARABIC_CHARS else ' ' for ch in text)
 
@@ -53,7 +53,7 @@ def preprocess(text, is_remove_last_diacritic=True):
 
   text = re.sub(r'[?؟!:]|[\n\t\r\f\v]+', '. ', text)
 
-  VALID_ARABIC_CHARS = LETTERS + DIACRITICS + ENG_LETTERS + NUMBERS + [' ']
+  VALID_ARABIC_CHARS = LETTERS + DIACRITICS + NUMBERS + ENG_LETTERS + ENG_NUMBERS + [' ']
 
   text = ''.join(ch if ch in VALID_ARABIC_CHARS else ' ' for ch in text)
 
