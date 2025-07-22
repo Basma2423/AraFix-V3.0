@@ -17,6 +17,9 @@ def preprocess_keep_periods_and_commas(text, is_remove_last_diacritic=True):
 
   text = araby.strip_tatweel(text)
 
+  # Replace question marks and exclamation with Arabic period + space
+  text = re.sub(r'[?؟!]', '. ', text)
+
   VALID_ARABIC_CHARS = LETTERS + DIACRITICS + [' ', '.', '.', ',', '،']
 
   text = ''.join(ch if ch in VALID_ARABIC_CHARS else ' ' for ch in text)
