@@ -9,7 +9,7 @@ def remove_last_diacritic(text):
     text = text[:-1]
   return text
 
-def preprocess_keep_periods_and_commas(text, remove_last_diacritic=True):
+def preprocess_keep_periods_and_commas(text, is_remove_last_diacritic=True):
 
   text = str(text)
 
@@ -37,12 +37,12 @@ def preprocess_keep_periods_and_commas(text, remove_last_diacritic=True):
 
   text = unicodedata.normalize("NFC", text)
 
-  if remove_last_diacritic:
+  if is_remove_last_diacritic:
     text = remove_last_diacritic(text)
 
   return text
 
-def preprocess(text, remove_last_diacritic=True):
+def preprocess(text, is_remove_last_diacritic=True):
 
   text = str(text)
 
@@ -67,12 +67,7 @@ def preprocess(text, remove_last_diacritic=True):
 
   text = unicodedata.normalize("NFC", text)
 
-  def remove_last_diacritic(text):
-    while text and text[-1] in DIACRITICS:
-      text = text[:-1]
-    return text
-
-  if remove_last_diacritic:
+  if is_remove_last_diacritic:
     text = remove_last_diacritic(text)
 
   return text
